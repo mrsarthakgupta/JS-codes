@@ -1,4 +1,8 @@
 {
     "liveServer.settings.port": 5501,
-    "editor.acceptSuggestionOnEnter": "on"
+    "editor.acceptSuggestionOnEnter": "on",
+    "cSpell.words": [
+        "Bengaluru",
+        "Sarthak"
+    ]
 }
