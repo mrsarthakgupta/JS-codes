@@ -1,47 +1,72 @@
-// 1. getElementById - Access an element by its ID and change its text
+//1. getElementById - Select by ID
 let para = document.getElementById("myPara");
-para.innerText = "Hi Sarthak!";
+para.innerText = "Hi Sarthak!"; // Changes text of the element with ID 'myPara'
 
-// 2. getElementsByClassName - Select elements by class name (returns HTMLCollection)
+//2. getElementsByClassName - Select multiple elements by class (HTMLCollection)
 let boxes = document.getElementsByClassName("box");
-boxes[0].innerText = "First Box"; // Change only the first box's text
+boxes[0].innerText = "First Box"; // Accessing first element in collection
 
-// 3. querySelector - Select the first element that matches the selector
+// ❗ HTMLCollection is live and doesn't support forEach directly
+// If you want to loop:
+Array.from(boxes).forEach(box => {
+  box.innerText = "Looped Box!";
+});
+
+//3. querySelector - Select first matching element (CSS style selector)
 document.querySelector(".myClass").innerText = "Using querySelector";
 
-// 4. querySelectorAll - Select all elements with .box class and change their color
+//4. querySelectorAll - Select all matching elements (NodeList)
 document.querySelectorAll(".box").forEach(el => {
-  el.style.color = "red"; // Change text color to red
+  el.style.color = "red"; // Set text color for all .box elements
 });
 
-// 5. Change inner text of an element
+// ❗ NodeList supports forEach, but you can't use addEventListener directly on NodeList
+// ❌ Wrong: document.querySelectorAll(".box").addEventListener(...);
+// ✅ Right: loop through each element and attach listener
+
+//5. Change text content of an element
 document.getElementById("textPara").innerText = "New Text!";
 
-// 6. Change inner HTML (structure) of an element
+//6. Change HTML structure inside an element
 document.getElementById("htmlPara").innerHTML = "<b>Bold Text</b>";
 
-// 7. Change style dynamically
+//7. Change inline style of an element
 let stylePara = document.getElementById("stylePara");
-stylePara.style.color = "blue";        // Change text color
-stylePara.style.fontSize = "20px";     // Increase font size
+stylePara.style.color = "blue";
+stylePara.style.fontSize = "20px";
 
-// 8. Add a class to an element to apply CSS styles
+//8. Add a CSS class to an element
 document.getElementById("addClassPara").classList.add("highlight");
 
-// 9. Create and add a new div element to the page
-let newDiv = document.createElement("div");         // Create a new div
-newDiv.innerText = "I am new!";                     // Add some text
-document.getElementById("newElementContainer").appendChild(newDiv); // Append to page
+//9. Create and append a new element
+let newDiv = document.createElement("div");
+newDiv.innerText = "I am new!";
+document.getElementById("newElementContainer").appendChild(newDiv);
 
-// 10. Remove an existing element from the DOM
+//10. Remove an element from DOM
 document.getElementById("removeMe").remove();
 
-// 11. Add a click event to a button
+//11. Add click event to a button
 document.getElementById("btn").addEventListener("click", function () {
-  alert("You clicked the button!"); // Show alert when button is clicked
+  alert("You clicked the button!");
 });
 
-// 12. Toggle Mode - Switch between light and dark mode
+//12. Toggle between light/dark mode using a class
 function toggleMode() {
-  document.body.classList.toggle("dark"); // Add/remove 'dark' class
+  document.body.classList.toggle("dark");
 }
+
+// ✅ BONUS: Add click event to multiple elements (using querySelectorAll)
+document.querySelectorAll(".box").forEach(box => {
+  box.addEventListener("click", function () {
+    console.log("Clicked:", this.innerText);
+  });
+});
+
+/*
+🧠 Summary:
+- getElementById / querySelector => single element (direct access)
+- getElementsByClassName => HTMLCollection (convert to array to loop)
+- querySelectorAll => NodeList (use forEach to loop)
+- Always use loop for adding eventListener to multiple elements
+*/

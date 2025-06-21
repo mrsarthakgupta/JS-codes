@@ -3,6 +3,8 @@ let myDate = new Date()                // 🕒 Creating a date object with curre
 console.log(myDate.toString());        // Full date string with time and timezone
 console.log(myDate.toDateString());    
 console.log(myDate.toLocaleString());  // Date and time in local format of laptop (e.g., "18/6/2025, 11:30:00 pm")
+console.log(myDate.toLocaleTimeString()); // Time in local format (e.g., "11:30:00 PM")
+console.log(myDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })); // Local time in "hh:mm AM/PM" format
 console.log(typeof myDate);            
 
 
