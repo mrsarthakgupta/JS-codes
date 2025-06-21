@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Examples</title>
+  <style>
+    /* Highlight class used to change background color */
+    .highlight {
+      background-color: yellow;
+    }
+
+    /* Dark mode class changes the entire page's background and text */
+    .dark {
+      background-color: black;
+      color: white;
+    }
+
+    /* Box class adds spacing between boxes */
+    .box {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. getElementById example -->
+  <h2>1. getElementById()</h2>
+  <p id="myPara">Hello</p>
+
+  <!-- 2. getElementsByClassName example -->
+  <h2>2. getElementsByClassName()</h2>
+  <div class="box">1</div>
+  <div class="box">2</div>
+
+  <!-- 3. querySelector example -->
+  <h2>3. querySelector()</h2>
+  <p class="myClass">Hello</p>
+
+  <!-- 4. querySelectorAll example -->
+  <h2>4. querySelectorAll()</h2>
+  <div class="box">Box 1</div>
+  <div class="box">Box 2</div>
+
+  <!-- 5. Change Text -->
+  <h2>5. Change Text</h2>
+  <p id="textPara">Old Text</p>
+
+  <!-- 6. Change HTML inside -->
+  <h2>6. Change HTML</h2>
+  <p id="htmlPara">Normal</p>
+
+  <!-- 7. Change Style dynamically -->
+  <h2>7. Change Style</h2>
+  <p id="stylePara">Styled Text</p>
+
+  <!-- 8. Add a class to an element -->
+  <h2>8. Add Class</h2>
+  <p id="addClassPara" class="text">Hello</p>
+
+  <!-- 9. Dynamically create and insert a new element -->
+  <h2>9. Create New Element</h2>
+  <div id="newElementContainer"></div>
+
+  <!-- 10. Remove an existing element -->
+  <h2>10. Remove Element</h2>
+  <div id="removeMe">Remove this</div>
+
+  <!-- 11. Attach an event listener to button -->
+  <h2>11. Event Listener</h2>
+  <button id="btn">Click Me</button>
+
+  <!-- 12. Toggle dark/light mode -->
+  <h2>12. Toggle Mode</h2>
+
+
+  <button onclick="toggleMode()">Toggle Mode</button>
+  <script src="05_script.js"></script>
+</body>
+</html>
