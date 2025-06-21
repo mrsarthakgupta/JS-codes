@@ -1,1 +1,1 @@
-console.log(JsUser.greetingTwo());
+console.log(tinderUser);

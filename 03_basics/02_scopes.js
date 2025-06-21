@@ -9,9 +9,9 @@ if (true) {
 
 
 
-// console.log(a);
-// console.log(b);
-// console.log(c);
+console.log(a);
+//console.log(b);
+//console.log(c);
 
 
 function one(){
@@ -21,19 +21,19 @@ function one(){
         const website = "youtube"
         console.log(username);
     }
-    // console.log(website);
+    //console.log(website);
 
-     two()
+    two()
 
 }
 
-// one()
+//one()
 
 if (true) {
     const username = "hitesh"
     if (username === "hitesh") {
         const website = " youtube"
-        // console.log(username + website);
+        //console.log(username + website);
     }
     // console.log(website);
 }
@@ -44,7 +44,7 @@ if (true) {
 // ++++++++++++++++++ interesting ++++++++++++++++++
 
 
-console.log(addone(5))
+console.log(addone(5))             //Function declarations are hoisted, so you can call them before they're defined.
 
 function addone(num){
     return num + 1
@@ -52,7 +52,7 @@ function addone(num){
 
 
 
-//addTwo(5)
-const addTwo = function(num){
+//addTwo(5)        
+const addTwo = function(num){     //Function expressions are NOT hoisted,so they must be called after they're defined.
     return num + 2
 }

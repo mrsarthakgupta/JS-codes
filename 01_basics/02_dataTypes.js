@@ -25,6 +25,8 @@ let state;
 
 // object
 
-console.log(typeof "sarthak"); // undefined
+console.log(typeof "sarthak"); // string
 console.log(typeof undefined); // undefined
 console.log(typeof null); // object
+
+// null is a bug in JS, it should be null, but it is object

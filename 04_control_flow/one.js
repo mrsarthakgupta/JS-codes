@@ -1,15 +1,15 @@
-// if
+// ----------------if------------------------------
 const isUserloggedIn = true
 const temperature = 41
 
-// if ( temperature === 40 ){
-//     console.log("less than 50");
-// } else {
-//     console.log("temperature is greater than 50");
-// }
+if ( temperature === 40 ){
+    console.log("less than 50");
+} else {
+    console.log("temperature is greater than 50");
+}
 
 // console.log("Execute");
-// <, >, <=, >=, ==, !=, ===, !==
+// <, >, <=, >=, ==, !=, ===, !==                   (== checks value only, === checks value and type)
 
 // const score = 200
 
@@ -23,7 +23,7 @@ const temperature = 41
 
 // const balance = 1000
 
-// if (balance > 500) console.log("test"),console.log("test2");
+// if (balance > 500) console.log("test"),console.log("test2");           //Single line if (works, but not recommended for multiple statements)
 
 // if (balance < 500) {
 //     console.log("less than 500");
@@ -43,10 +43,10 @@ const debitCard = true
 const loggedInFromGoogle = false
 const loggedInFromEmail = true
 
-if (userLoggedIn && debitCard && 2==3) {
+if (userLoggedIn && debitCard && 2==3) {                     //Logical AND (&&) – all conditions must be true
     console.log("Allow to buy course");
 }
 
-if (loggedInFromGoogle || loggedInFromEmail) {
+if (loggedInFromGoogle || loggedInFromEmail) {              //Logical OR (||) – any one condition is true
     console.log("User logged in");
 }

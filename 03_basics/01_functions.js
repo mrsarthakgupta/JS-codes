@@ -1,14 +1,15 @@
 
 function sayMyName(){
-    console.log("H");
-    console.log("I");
-    console.log("T");
-    console.log("E");
     console.log("S");
+    console.log("A");
+    console.log("R");
+    console.log("T");
     console.log("H");
+    console.log("A");
+    console.log("K");
 }
 
-// sayMyName()
+//sayMyName()
 
 // function addTwoNumbers(number1, number2){
 
@@ -17,14 +18,12 @@ function sayMyName(){
 
 function addTwoNumbers(number1, number2){
 
-    // let result = number1 + number2
-    // return result
+    //let result = number1 + number2
+    //return result
     return number1 + number2
 }
 
-const result = addTwoNumbers(3, 5)
-
-// console.log("Result: ", result);
+//console.log(`Result: ${addTwoNumbers(3, 5)}`);
 
 
 function loginUserMessage(username = "sam"){
@@ -35,15 +34,14 @@ function loginUserMessage(username = "sam"){
     return `${username} just logged in`
 }
 
-// console.log(loginUserMessage("hitesh"))
-// console.log(loginUserMessage("hitesh"))
+//console.log(loginUserMessage("hitesh"))
 
 
-function calculateCartPrice(val1, val2, ...num1){
+function calculateCartPrice(val1, val2, ...num1){               // Function using rest operator to handle extra values
     return num1
 }
 
-console.log(calculateCartPrice(200, 400, 500, 2000))
+console.log(calculateCartPrice(200, 400, 500, 2000))            // Returns all extra values as array
 
 const user = {
     username: "hitesh",

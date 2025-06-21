@@ -1,6 +1,6 @@
 const userEmail = []
 
-if (userEmail) {
+if (userEmail) {                                           //An empty array [] is truthy in JavaScript
     console.log("Got user email");
 } else {
     console.log("Don't have user email");
@@ -25,7 +25,7 @@ if (Object.keys(emptyObj).length === 0) {
 
 // Nullish Coalescing Operator (??): null undefined
 
-let val1;
+let val1;                                         // ?? returns the first non-null/non-undefined value.
 // val1 = 5 ?? 10
 // val1 = null ?? 10
 // val1 = undefined ?? 15
@@ -35,7 +35,7 @@ val1 = null ?? 10 ?? 20
 
 console.log(val1);
 
-// Terniary Operator
+// Terniary Operator- shorthand for if-else
 
 // condition ? true : false
 
