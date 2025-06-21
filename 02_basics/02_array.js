@@ -17,7 +17,7 @@ console.log(real_another_array);                         // [1, 2, 3, 4, 5, 6, 7
 
 console.log(Array.isArray("Hitesh"));                    // false – it's a string
 console.log(Array.from("Hitesh"));                       // converts string to array: ['H', 'i', 't', 'e', 's', 'h']
-console.log(Array.from({name: "hitesh"}));               // ❗ returns [] because object is not directly iterable
+console.log(Array.from({name: "hitesh"}));               // returns [] because object is not directly iterable
 
 let score1 = 100
 let score2 = 200
