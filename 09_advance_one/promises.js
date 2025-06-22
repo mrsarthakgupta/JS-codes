@@ -1,9 +1,10 @@
+// ✅ PROMISE 1: Basic async task with then()
 const promiseOne = new Promise(function(resolve, reject){
     //Do an async task
     // DB calls, cryptography, network
     setTimeout(function(){
         console.log('Async task is compelete');
-        resolve()
+        resolve()                                    // Resolve the promise (no data sent)
     }, 1000)
 })
 
@@ -11,6 +12,7 @@ promiseOne.then(function(){
     console.log("Promise consumed");
 })
 
+// ✅ PROMISE 2: Anonymous promise used directly
 new Promise(function(resolve, reject){
     setTimeout(function(){
         console.log("Async task 2");
@@ -21,16 +23,19 @@ new Promise(function(resolve, reject){
     console.log("Async 2 resolved");
 })
 
+// ✅ PROMISE 3: Returning data (an object) on resolve
 const promiseThree = new Promise(function(resolve, reject){
     setTimeout(function(){
-        resolve({username: "Chai", email: "chai@example.com"})
-    }, 1000)
+        resolve({username: "Chai", email: "chai@example.com"})          //resolve() is sending an object as data AND .then() catch that object.
+    }, 1000)                                                            //resolve send data to .then() and reject send data to .catch()
 })
 
 promiseThree.then(function(user){
     console.log(user);
 })
 
+// ✅ PROMISE 4: Using .then, .catch, and .finally
+// Chaining promises: it is the process of linking multiple promises together so that the output of one promise can be used as the input for the next promise.
 const promiseFour = new Promise(function(resolve, reject){
     setTimeout(function(){
         let error = true
@@ -42,21 +47,28 @@ const promiseFour = new Promise(function(resolve, reject){
     }, 1000)
 })
 
- promiseFour
- .then((user) => {
-    console.log(user);
-    return user.username
-}).then((username) => {
-    console.log(username);
-}).catch(function(error){
-    console.log(error);
-}).finally(() => console.log("The promise is either resolved or rejected"))
+// Handling the promise
+promiseFour                      //ek .then() dusre .then() ko value pass karega 
+.then((user) => {
+    console.log(user);          // Log the user object       
+    return user.username;       // Return username to next .then()
+})
+.then((username) => {
+    console.log(username);      // Log the username separately
+})
+.catch(function(error){
+    console.log(error);         // Log any errors if promise is rejected
+})
+.finally(() => {
+    console.log("The promise is either resolved or rejected");  // Always runs
+})
 
-
-
+// ✅ PROMISE 5: Using async/await for cleaner syntax
+// Async/Await: It is a way to work with promises in a more synchronous manner,
+// Async functions always return a promise, and the await keyword can be used to pause the execution
 const promiseFive = new Promise(function(resolve, reject){
     setTimeout(function(){
-        let error = true
+        let error = false
         if (!error) {
             resolve({username: "javascript", password: "123"})
         } else {
@@ -64,39 +76,43 @@ const promiseFive = new Promise(function(resolve, reject){
         }
     }, 1000)
 });
-
+// Async function to consume promiseFive using await
 async function consumePromiseFive(){
     try {
-        const response = await promiseFive
-        console.log(response);
+        const response = await promiseFive;  // Wait for the promise to complete
+        console.log(response);               // Log the response if resolved
     } catch (error) {
-        console.log(error);
+        console.log(error);                  // Catch and log if promise is rejected
     }
 }
-
 consumePromiseFive()
 
-// async function getAllUsers(){
-//     try {
-//         const response = await fetch('https://jsonplaceholder.typicode.com/users')
+// ✅ PROMISE 6: Using Fetch API to make network requests
+// Fetch API: It is a modern way to make network requests in JavaScript, it returns a promise that resolves to the response of the request.
 
-//         const data = await response.json()
+// async function getAllUsers(){
+//     try {                                                                                //try {} handles success
+//         const response = await fetch('https://jsonplaceholder.typicode.com/users')       //await waits for the Promise to finish.
+//         const data = await response.json()                                               //the response is in string format, so we need to convert it to JSON(javascript object notation)
 //         console.log(data);
-//     } catch (error) {
+//     } catch (error) {                                                                    //catch {} handles error
 //         console.log("E: ", error);
 //     }
 // }
 
 //getAllUsers()
 
-fetch('https://api.github.com/users/hiteshchoudhary')
+fetch('https://api.github.com/users/hiteshchoudhary')  // Send HTTP request
 .then((response) => {
-    return response.json()
+    return response.json();  // Convert response to JSON
 })
 .then((data) => {
-    console.log(data);
+    console.log(data);       // Log the full user data
 })
-.catch((error) => console.log(error))
+.catch((error) => {
+    console.log(error);      // Catch and log if there's any error in fetch
+})
 
-// promise.all
-// yes this is also available, kuch reading aap b kro.
+// PROMISE.ALL (mentioned for further reading)
+// It can be used to run multiple promises in parallel
+// Example: Promise.all([p1, p2, p3]).then([...])

@@ -5,23 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body style="background-color: black; color: whitesmoke;">
     <h1>Chai aur code</h1>
     <button id="stop">Stop</button>
+    <button id="startInterval">startInterval</button>
+    <button id="stopInterval">stopInterval</button>
+    <div id="container"> </div>
 </body>
 <script>
-    const sayHitesh = function(){
-        console.log("Hitesh");
-    }
     const changeText = function(){
         document.querySelector('h1').innerHTML = "best JS series"
     }
 
-    const changeMe = setTimeout(changeText, 2000)
+    const changeMe = setTimeout(changeText, 2000)                             //let timeoutID = setTimeout(callbackFunction, delayInMilliseconds)
 
     document.querySelector('#stop').addEventListener('click', function(){
         clearTimeout(changeMe)
         console.log("STOPPED")
     })
+
+    //--------------------------setInterval Example---------------------------
+
+    const showTime = () => {
+        document.getElementById("container").innerHTML = "⏰ Time: " + new Date().toLocaleTimeString();
+        console.log("⏰ Time: " + new Date().toLocaleTimeString());
+    }
+
+    let intervalID;
+    document.getElementById('startInterval').addEventListener('click', () => {  //let intervalID = setInterval(function, delay, param1, param2, ...); and these parameters are passed to the callback function
+        intervalID = setInterval(showTime, 1000);                              // Runs every 1 second
+        console.log("Interval Started");
+    });
+
+    document.getElementById('stopInterval').addEventListener('click', () => {
+        clearInterval(intervalID);
+        console.log("Interval Stopped");
+        });
 </script>
 </html>
