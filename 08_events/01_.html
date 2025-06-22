@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HTML Events – All Concepts</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+  <h2>🖼️ Amazing Image Gallery + Event Concepts</h2>
+
+  <!-- 🔹 Capturing vs Bubbling Demonstration Area -->
+  <div id="outer" style="padding: 20px; background-color: #333; margin-bottom: 30px;">
+    Outer Div (Capturing & Bubbling)
+    <div id="inner" style="margin: 10px; padding: 20px; background-color: #555;">
+      Inner Div (Click Me)
+    </div>
+  </div>
+
+  <!-- 🔹 Main Image Gallery and Link -->
+  <div>
+    <ul id="images">
+      <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+      <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="japan"></li>
+      <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="river"></li>
+      <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="owl"></li>
+      <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="prayer"></li>
+      
+      <!-- External link to test preventDefault + stopPropagation -->
+      <li><a style="color: aliceblue;" href="https://google.com" id="google">Visit Google</a></li>
+    </ul>
+  </div>
+
+  <script>
+    // 🔹 EVENT FLOW: Bubbling (default) → bottom-up
+    document.getElementById("inner").addEventListener("click", function () {
+      console.log("🟩 Inner clicked (bubbling phase)");
+    }, false);  // false means bubbling phase
+
+    document.getElementById("outer").addEventListener("click", function () {
+      console.log("🟥 Outer clicked (bubbling phase)");
+    }, false);
+
+    // 🔹 EVENT FLOW: Capturing → top-down
+    document.getElementById("outer").addEventListener("click", function () {
+      console.log("🟨 Outer clicked (capturing phase)");
+    }, true);   // true means capturing phase
+
+    // Try clicking the inner div and watch the log order:
+    // 1. 🟨 Outer clicked (capturing)
+    // 2. 🟩 Inner clicked (bubbling)
+    // 3. 🟥 Outer clicked (bubbling)
+
+    // 🔹 stopPropagation(): Prevent parent handlers from firing
+    document.getElementById("owl").addEventListener("click", function (e) {
+      console.log("🦉 Owl image clicked");
+      e.stopPropagation(); // Stops event from reaching UL
+      alert("You clicked the owl. Bubbling stopped!");
+    });
+
+    // 🔹 preventDefault(): Prevent link from navigating
+    document.getElementById("google").addEventListener("click", function (e) {
+      e.preventDefault();     // stops link from opening Google
+      e.stopPropagation();    // also stops bubbling to parent UL
+      alert("Navigation to Google prevented!");
+      console.log("🔗 Link clicked but browser did not navigate.");
+    });
+
+    // 🔹 Delegated Event Listener on UL – only triggers on IMG clicks
+    document.querySelector('#images').addEventListener('click', function(e){
+      console.log("Event Target Tag:", e.target.tagName);
+
+      // If image clicked, remove its parent <li>
+      if (e.target.tagName === 'IMG') {
+        console.log("Clicked Image ID:", e.target.id);
+        let removeIt = e.target.parentNode;
+        removeIt.remove(); // modern way to remove
+        // OR: removeIt.parentNode.removeChild(removeIt); // older way
+      }
+    });
+
+    // 🔹 Additional Useful Event Properties (for future use)
+    // e.type               → Type of event (e.g., 'click')
+    // e.timestamp          → When the event occurred
+    // e.target             → Actual clicked element
+    // e.currentTarget      → Where the event listener is attached
+    // e.clientX/clientY    → Mouse position in viewport
+    // e.altKey/ctrlKey     → Modifier keys if pressed
+  </script>
+</body>
+</html>
+ 

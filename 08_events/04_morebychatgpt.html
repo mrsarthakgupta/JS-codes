@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Events Full Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #hoverBox {
+      width: 250px;
+      height: 100px;
+      background-color: lightblue;
+      text-align: center;
+      line-height: 100px;
+      margin: 10px 0;
+      border: 2px dashed blue;
+      transition: all 0.3s ease;
+    }
+    #output {
+      margin-top: 20px;
+      font-weight: bold;
+      color: darkgreen;
+    }
+    input, select, button {
+      display: block;
+      margin: 10px 0;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧠 JavaScript Events Full Demo</h1>
+
+  <!-- 1. Click Events -->
+  <button id="clickBtn">Click Me</button>
+  <button id="dblClickBtn">Double Click Me</button>
+
+  <!-- 2. Mouse Events -->
+  <div id="hoverBox">Hover over me</div>
+
+  <!-- 3. Keyboard Events -->
+  <input type="text" id="keyInput" placeholder="Type something here..." />
+
+  <!-- 4. Input & Change Events -->
+  <select id="dropdown">
+    <option value="">-- Choose Option --</option>
+    <option value="Option A">Option A</option>
+    <option value="Option B">Option B</option>
+  </select>
+
+  <input type="text" id="liveInput" placeholder="Live input shows below" />
+
+  <!-- 5. Focus and Blur Events -->
+  <input type="text" id="focusInput" placeholder="Focus and blur here" />
+
+  <!-- 6. Form Submit Event -->
+  <form id="myForm">
+    <input type="text" placeholder="Enter your name" required />
+    <button type="submit">Submit Form</button>
+  </form>
+
+  <!-- Output -->
+  <div id="output">Event info will show here...</div>
+
+  <!-- Linking external JS -->
+  <script src="04_jsfile.js"></script>
+</body>
+</html>
