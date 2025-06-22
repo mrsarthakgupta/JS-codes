@@ -1,3 +1,14 @@
+//syntax:
+// const myPromise = new Promise(function(resolve, reject) {
+//   // async task here (like API call, setTimeout, DB query)
+
+//   if (/* task successful */) {
+//     resolve(result); // Success — pass data
+//   } else {
+//     reject(error);   // Failure — pass error
+//   }
+// });
+
 // ✅ PROMISE 1: Basic async task with then()
 const promiseOne = new Promise(function(resolve, reject){
     //Do an async task
