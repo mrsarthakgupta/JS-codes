@@ -113,6 +113,10 @@ consumePromiseFive()
 
 //getAllUsers()
 
+//fetch() is a built-in JavaScript function used to get data from a server or API — without reloading the page.
+//fetch() returns a promise that resolves to the response of the request.   
+//fetch() only rejects on network errors, not on HTTP errors like 404 or 500.So, always check response.ok or response.status manually in .then() to handle such cases properly.
+
 fetch('https://api.github.com/users/hiteshchoudhary')  // Send HTTP request
 .then((response) => {
     return response.json();  // Convert response to JSON
