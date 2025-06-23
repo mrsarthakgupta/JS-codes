@@ -17,9 +17,9 @@
             //requirement
             document
                 .querySelector('button')
-                .addEventListener('click', this.handleClick.bind(this))
+                .addEventListener('click', this.handleClick.bind(this))   // binding the context of 'this' to the class instance
+        }                                                                 // so it always refers to the instance of React class not the button element
 
-        }
         handleClick(){
             console.log("button clicked");
             console.log(this.server);

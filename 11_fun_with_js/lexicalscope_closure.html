@@ -12,8 +12,8 @@
 
     <script>
     // function init() {
-    //     let name = "Mozilla"; 
-    //     function displayName() {
+    //     let name = "Sarthak"; 
+    //     function displayName() {                         //Lexical scope:Inner functions accessing outer variables
     //         console.log(name); 
     //     }
     //     displayName();
@@ -21,30 +21,32 @@
     // init();
 
     // function outer(){
-    //     let username = "hitesh"
-    //     console.log("OUTER", secret);
+    //     let username = "Sarthak"
+    //     console.log("OUTER", secret);                 // ReferenceError here
+
     //     function inner(){
     //         let secret = "my123"
-    //         console.log("inner", username);
+    //         console.log("inner", username);           // Works
     //     }
+
     //     function innerTwo(){
     //         console.log("innerTwo", username);
-    //         console.log(secret);
-    //     }
+    //         console.log(secret);                      // ReferenceError here
+    //     }                                             //This proves that variables are not shared across sibling functions, only inherited downward
     //     inner()
     //     innerTwo()
 
     // }
     // outer()
-    // console.log("TOO OUTER", username);
+    // console.log("TOO OUTER", username);                // ReferenceError here
 
 
     // function makeFunc() {
-    //     const name = "Mozilla";
+    //     const name = "Sarthak";                     //Outer function variable
     //     function displayName() {
     //         console.log(name);
     //     }
-    //     return displayName;
+    //     return displayName;                            //Closure: Inner function retains access to outer function's variables even after the outer function has executed/done
     // }
 
     // const myFunc = makeFunc();

@@ -1,5 +1,7 @@
+//function-based version of the getter/setter concept
+
 function User(email, password){
-    this._email = email;
+    this._email = email;                             //Internal "private-like" variables (convention: starts with _)
     this._password = password
 
     Object.defineProperty(this, 'email', {
